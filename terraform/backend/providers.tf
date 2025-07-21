@@ -15,8 +15,8 @@ terraform {
     key    = "terraform.tfstate"
     region = "ru-central1" # только хардкод
 
-    access_key = "YCAJEFDe6jYC0YDxF-vp8smwd"                # только хардкод
-    secret_key = "YCNSvrHRC4XLxYoeyDREdota_CarTljwFDDa87Mw" # только хардкод
+    access_key = "access_key"                # только хардкод
+    secret_key = "secret_key" # только хардкод
 
     dynamodb_table = "diplomTable" #Таблица блокировок # только хардкод
     encrypt        = false         #Шифрование state сервером Terraform
