@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: my-app
+  name: my-app
+  namespace: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - image: kirskirill/diplomapp:gitTag
+          imagePullPolicy: IfNotPresent
+          name: my-app
+      terminationGracePeriodSeconds: 20
+          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app
+  namespace: nginx
+spec:
+  ports:
+    - name: web
+      port: 80
+      targetPort: 80
+      nodePort: 30080
+  selector:
+    app: my-app
+  type: NodePort
