@@ -1,7 +1,3 @@
-*.DS_Store
-*.py
-*.pub
-
 # Local .terraform directories and files
 **/.terraform/*
 .terraform*
