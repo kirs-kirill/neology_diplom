@@ -14,3 +14,4 @@ personal.auto.tfvars
 venv
 
 .vscode
+.DS_Store
