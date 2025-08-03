@@ -259,13 +259,13 @@ Kubespray почему-то в первый раз затыкается на с�
 И меняем IP в `./.kube/config` с 127.0.0.1 на публичный адрес машины.
 
 <details>
-  <summary>cat ./.kube/config</summary>
+  <summary><code>cat ./.kube/config</code></summary>
 
 ![playbook](./images/8.png)
  </details> 
 
 <details>
-  <summary>kubectl get pods --all-namespaces и kubectl get nodes</summary>
+  <summary><code>kubectl get pods --all-namespaces и kubectl get nodes</code></summary>
 
         ubuntu@master:~$ kubectl get pods --all-namespaces 
         NAMESPACE       NAME                                       READY   STATUS    RESTARTS       AGE
