@@ -1,0 +1,26 @@
+all:
+  hosts:
+    master:
+      ansible_host: 158.160.45.98
+      ansible_user: ubuntu
+    node1:
+      ansible_host: 89.169.191.165
+      ansible_user: ubuntu
+    node2:
+      ansible_host: 130.193.58.199
+      ansible_user: ubuntu
+  children:
+    kube_control_plane:
+      hosts:
+        master: null
+    kube_node:
+      hosts:
+        node1: null
+        node2: null
+    etcd:
+      hosts:
+        master: null
+    k8s_cluster:
+      children:
+        kube_control_plane: null
+        kube_node: null

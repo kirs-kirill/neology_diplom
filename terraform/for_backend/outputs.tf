@@ -8,7 +8,7 @@ output "secret_key" {
   sensitive = true
 }
 
-output "dynamodb" {
-  value     = yandex_ydb_database_serverless.diplom-ydb.document_api_endpoint
-  sensitive = true
-}
+# output "dynamodb" {
+#   value     = yandex_ydb_database_serverless.diplom-ydb.document_api_endpoint
+#   sensitive = true
+# }

@@ -60,6 +60,7 @@
     - not ignore_assert_errors
     - ping_access_ip
   changed_when: false
+  retries: 5
 
 - name: Stop if kernel version is too low for cilium
   assert:

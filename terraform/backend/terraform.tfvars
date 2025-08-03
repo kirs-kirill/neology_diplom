@@ -17,7 +17,7 @@ networks_zone = {
 }
 
 vms = {
-  vm1 = {
+  master = {
     zone          = "ru-central1-a"
     name          = "master"
     description   = "VM in zone A"
@@ -29,7 +29,7 @@ vms = {
     subnet_key    = "a"
     preemptible   = true
   }
-  vm2 = {
+  node1 = {
     zone          = "ru-central1-b"
     name          = "node1"
     description   = "VM in zone B"
@@ -41,7 +41,7 @@ vms = {
     subnet_key    = "b"
     preemptible   = true
   }
-  vm3 = {
+  node2 = {
     zone          = "ru-central1-d"
     name          = "node2"
     description   = "VM in zone D"

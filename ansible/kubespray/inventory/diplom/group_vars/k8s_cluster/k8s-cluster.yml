@@ -370,3 +370,4 @@ kubeadm_patches: []
 
 # Set to true to remove the role binding to anonymous users created by kubeadm
 remove_anonymous_access: false
+supplementary_addresses_in_ssl_keys: [158.160.45.98]

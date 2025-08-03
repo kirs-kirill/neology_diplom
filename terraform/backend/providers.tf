@@ -7,18 +7,21 @@ terraform {
   required_version = ">=1.5"
 
   backend "s3" {
+    # endpoints = {
+    #   s3       = "https://storage.yandexcloud.net",                                                                # только хардкод
+    #   dynamodb = "https://docapi.serverless.yandexcloud.net/ru-central1/b1gtntehc8q3dldpb1ka/etnbd49lolo7tormecvr" # Меняется при пересоздании БД, # только хардкод
+    # }
     endpoints = {
-      s3       = "https://storage.yandexcloud.net",                                                                # только хардкод
-      dynamodb = "https://docapi.serverless.yandexcloud.net/ru-central1/b1gtntehc8q3dldpb1ka/etnlvmq8jje19jd2idfi" # Меняется при пересоздании БД, # только хардкод
+      s3 = "https://storage.yandexcloud.net"
     }
     bucket = "kirsanov-diplom-bucket" # только хардкод
     key    = "terraform.tfstate"
     region = "ru-central1" # только хардкод
 
-    access_key = "access_key"               # только хардкод
-    secret_key = "secret_key"   # только хардкод
+    # access_key = "${ACCESS_KEY}"             # только хардкод
+    # secret_key = "${SECRET_KEY}" # только хардкод
 
-    dynamodb_table = "diplomTable" #Таблица блокировок # только хардкод
+    # dynamodb_table = "diplomTable" #Таблица блокировок # только хардкод
     encrypt        = false         #Шифрование state сервером Terraform
 
     skip_region_validation      = true
