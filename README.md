@@ -11,7 +11,8 @@
     Создает сервисный аккаунт с правами на запись, и бакет для хранения state-файла. Возвращает access_key и secret_key для бэкенда.
 
     <details>
-      <summary> terraform init && terraform apply --auto-approve </summary>
+      <summary> <code>terraform init && terraform apply --auto-approve </code></summary>
+
         ➜  diplom git:(main) ✗ cd ./terraform/for_backend 
         ➜  for_backend git:(main) ✗ terraform init && terraform apply --auto-approve
         Initializing the backend...
@@ -23,22 +24,22 @@
         selections it made above. Include this file in your version control repository
         so that Terraform can guarantee to make the same selections by default when
         you run "terraform init" in the future.
-
+        
         Terraform has been successfully initialized!
-
+        
         You may now begin working with Terraform. Try running "terraform plan" to see
         any changes that are required for your infrastructure. All Terraform commands
         should now work.
-
+        
         If you ever set or change modules or backend configuration for Terraform,
         rerun this command to reinitialize your working directory. If you forget, other
         commands will detect it and remind you to do so if necessary.
-
-        Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+        
+        Terraform used the selected providers to generate the following execution plan.         Resource actions are indicated with the following symbols:
           + create
-
+        
         Terraform will perform the following actions:
-
+        
           # yandex_iam_service_account.sa will be created
           + resource "yandex_iam_service_account" "sa" {
               + created_at  = (known after apply)
@@ -47,7 +48,7 @@
               + id          = (known after apply)
               + name        = "diplom"
             }
-
+        
           # yandex_iam_service_account_static_access_key.sa-static-key will be created
           + resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
               + access_key                   = (known after apply)
@@ -60,7 +61,7 @@
               + secret_key                   = (sensitive value)
               + service_account_id           = (known after apply)
             }
-
+        
           # yandex_resourcemanager_folder_iam_member.sa-editor will be created
           + resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
               + folder_id = (sensitive value)
@@ -68,7 +69,7 @@
               + member    = (known after apply)
               + role      = "editor"
             }
-
+        
           # yandex_storage_bucket.diplom_bucket will be created
           + resource "yandex_storage_bucket" "diplom_bucket" {
               + access_key            = (known after apply)
@@ -83,16 +84,16 @@
               + secret_key            = (sensitive value)
               + website_domain        = (known after apply)
               + website_endpoint      = (known after apply)
-
+        
               + anonymous_access_flags (known after apply)
-
+        
               + grant (known after apply)
-
+        
               + versioning (known after apply)
             }
-
+        
         Plan: 4 to add, 0 to change, 0 to destroy.
-
+        
         Changes to Outputs:
           + access_key = (sensitive value)
           + secret_key = (sensitive value)
@@ -100,15 +101,15 @@
         yandex_iam_service_account.sa: Creation complete after 2s [id=ajec9m12o0oe7kecnbeb]
         yandex_iam_service_account_static_access_key.sa-static-key: Creating...
         yandex_resourcemanager_folder_iam_member.sa-editor: Creating...
-        yandex_iam_service_account_static_access_key.sa-static-key: Creation complete after 2s [id=aje7kiijgg7g7c2l4kf2]
+        yandex_iam_service_account_static_access_key.sa-static-key: Creation complete after         2s [id=aje7kiijgg7g7c2l4kf2]
         yandex_storage_bucket.diplom_bucket: Creating...
-        yandex_resourcemanager_folder_iam_member.sa-editor: Creation complete after 3s [id=b1g65ggbv0fmdj4bp782/editor/serviceAccount:ajec9m12o0oe7kecnbeb]
-        yandex_storage_bucket.diplom_bucket: Creation complete after 3s [id=kirsanov-diplom-bucket]
-
+        yandex_resourcemanager_folder_iam_member.sa-editor: Creation complete after 3s         [id=b1g65ggbv0fmdj4bp782/editor/serviceAccount:ajec9m12o0oe7kecnbeb]
+        yandex_storage_bucket.diplom_bucket: Creation complete after 3s         [id=kirsanov-diplom-bucket]
+        
         Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
-
+        
         Outputs:
-
+        
         access_key = <sensitive>
         secret_key = <sensitive>
     </details>
@@ -141,7 +142,7 @@
     При инициализации передаем ключи как переменные окружения:
 
     <details>
-      <summary> terraform init -backend-config="access_key=$ACCESS_KEY" -backend-config="secret_key=$SECRET_KEY" -reconfigure </summary>
+      <summary> <code>terraform init -backend-config="access_key=$ACCESS_KEY" -backend-config="secret_key=$SECRET_KEY" -reconfigure </code></summary>
     
         backend git:(main) ✗ terraform init -backend-config="access_key=$ACCESS_KEY" -backend-config="secret_key=$SECRET_KEY" -reconfigure
         Initializing the backend...
@@ -241,7 +242,7 @@
 
 
 <details>
-  <summary>ansible-playbook -i ./inventory/diplom/inventory.yaml ./cluster.yml -b</summary>
+  <summary><code>ansible-playbook -i ./inventory/diplom/inventory.yaml ./cluster.yml -b</code></summary>
 
 ![playbook](./images/7.png)
  </details> 
@@ -325,7 +326,7 @@ Kubespray почему-то в первый раз затыкается на с�
     kubectl edit svc stable-grafana
 
 <details>
-<summary> kubectl get services </summary>
+<summary> <code>kubectl get services</code> </summary>
 
 ![kubectl get services](./images/9.png)
 </details>
